@@ -1,0 +1,23 @@
+Run the CrmSvcUtil.exe tool, with the “Microsoft.Xrm.Client.CodeGeneration” extension, to generate your entity classes and service contexts. The following is an example command to create a file called Xrm.cs that points at an instance of Microsoft Dynamics CRM. Note that the Microsoft.Xrm.Client.CodeGeneration.dll file must be in the same directory as the CrmSvcUtil.exe file, or in the system global assembly cache, when you run this command. The first command shown is for an on-premises organization. The second command is for a CRM Online organization. Both commands should be executed as a single command line with no line breaks.
+
+# CRM
+CrmSvcUtil.exe
+/codeCustomization:"Microsoft.Xrm.Client.CodeGeneration.CodeCustomization, Microsoft.Xrm.Client.CodeGeneration"
+/out:Xrm.cs 
+/url:http://<myserver>/<myorg>/XRMServices/2011/Organization.svc 
+/domain:<mydomain> 
+/username:<myusername> 
+/password:<mypassword> 
+/namespace:Xrm 
+/serviceContextName:XrmServiceContext
+
+# CRM Online
+
+CrmSvcUtil.exe
+/codeCustomization:"Microsoft.Xrm.Client.CodeGeneration.CodeCustomization, Microsoft.Xrm.Client.CodeGeneration"
+/out:Xrm.cs 
+/url:https://<mydomain>.api.crm.dynamics.com/XRMServices/2011/Organization.svc
+/username:<myusername>@<mydomain>.onmicrosoft.com 
+/password:<mypassword> 
+/namespace:Xrm 
+/serviceContextName:XrmServiceContext
